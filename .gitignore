@@ -1,0 +1,11 @@
+# repository
+node_modules
+dist
+
+# temporary files
+*.temp.*
+*.bkp
+
+# debug
+*-debug.log*
+*-error.log*

@@ -1,0 +1,5 @@
+.editorconfig
+.prettier*
+src
+tsup.config.json
+!dist
