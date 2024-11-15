@@ -1,5 +1,8 @@
 .editorconfig
 .prettier*
+.vscode
+.github
+.changeset
 src
-tsup.config.json
+tsup.config.ts
 !dist

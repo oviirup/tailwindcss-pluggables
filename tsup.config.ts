@@ -4,9 +4,9 @@ import path from 'path';
 import { defineConfig } from 'tsup';
 import pkg from './package.json';
 
-const patterns = Object.keys(pkg.exports).map((entry) => {
+const patterns = Object.keys(pkg.exports).flatMap((entry) => {
   // add extensions to path glob
-  return path.parse(entry).ext ? entry : `${entry}.{js,ts}`;
+  return path.parse(entry).ext ? entry : [`${entry}.{js,ts}`, `${entry}/index.{js,ts}`];
 });
 
 const srcPath = path.join(__dirname, 'src');
@@ -30,13 +30,7 @@ const entries = fs
   }, {});
 
 export default defineConfig((cfg) => {
-  const commons = {
-    entry: entries,
-    outDir: 'dist',
-    clean: true,
-    minify: !cfg.watch,
-  };
-
+  const commons = { entry: entries, outDir: 'dist', clean: true };
   return [
     { ...cfg, ...commons, format: ['esm'], dts: true },
     { ...cfg, ...commons, format: ['cjs'] },

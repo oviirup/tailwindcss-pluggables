@@ -9,3 +9,9 @@ dist
 # debug
 *-debug.log*
 *-error.log*
+
+# package lock
+package-lock.json
+pnpm-lock.yaml
+bun.lockb
+yarn.lock
