@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-pluggables",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "A collection of useful tailwind plugins in one package",
   "repository": {
