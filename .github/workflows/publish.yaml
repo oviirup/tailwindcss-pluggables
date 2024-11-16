@@ -1,0 +1,30 @@
+name: Publish CLI Tool
+
+on:
+  push:
+    branches: [main]
+  pull_request_target:
+    branches: [main]
+    types: [closed]
+
+jobs:
+  publish:
+    if: github.event_name == 'push' || github.event.pull_request.merged
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+
+      - name: ⚙️ Build Package
+        run: bun run build
+
+      - name: 🚀 Create Pull Request & Publish
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: bun changeset publish
+          commit: '✅ chore: update version'
+          title: '✅ chore: update version'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
