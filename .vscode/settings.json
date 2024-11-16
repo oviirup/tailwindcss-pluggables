@@ -10,5 +10,9 @@
   "explorer.fileNesting.patterns": {
     "package.json": ".nvmrc, .npm*, bun.lockb, pnpm*, yarn.lock",
     "*.js": "$(capture).cjs, $(capture).d.cts, $(capture).js.map, $(capture).*.js, $(capture).d.ts"
-  }
+  },
+  // prettier-ignore
+  "cSpell.words": [
+    "pluggable","pluggables",
+  ]
 }

@@ -15,12 +15,6 @@ runs:
     - name: 🟢 Setup Bun
       uses: oven-sh/setup-bun@v2
 
-    - name: 🟢 Setup node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20.x
-        cache: 'bun'
-
     - name: ⚙️ Install dependencies
       shell: bash
       run: bun install

@@ -73,8 +73,15 @@ const animateThemeConfig: Partial<Config> = {
   },
 };
 
-/** A Tailwind CSS plugin for creating beautiful animations */
-export default createPlugin(({ addUtilities, matchUtilities, theme }) => {
+/**
+ * A tailwind plugin to create beautiful animations
+ *
+ * This plugin is inspired from [tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate) with css
+ * modules support
+ *
+ * [Documentation](#)
+ */
+const animatePlugin = createPlugin(({ addUtilities, matchUtilities, theme }) => {
   addUtilities({
     '.animate-in': {
       '--tw-enter-opacity': 'initial',
@@ -169,3 +176,5 @@ export default createPlugin(({ addUtilities, matchUtilities, theme }) => {
 
   matchUtilities({ repeat: (value) => ({ animationIterationCount: value }) }, { values: theme('animationRepeat') });
 }, animateThemeConfig);
+
+export default animatePlugin;

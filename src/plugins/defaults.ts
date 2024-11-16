@@ -1,12 +1,17 @@
 import { directValues, remSizes } from '@/utils';
-import plugin from 'tailwindcss/plugin.js';
+import createPlugin from 'tailwindcss/plugin.js';
 
 const extendedBorderWidth = {
   3: '3px',
   5: '5px',
 };
 
-export default plugin(() => {}, {
+/**
+ * Extended theme defaults
+ *
+ * [Documentation](#)
+ */
+const defaultsPlugin = createPlugin(() => {}, {
   theme: {
     extend: {
       spacing: remSizes([4.5, 5.5, 6.5, 7.5, 8.5, 9.5, 13, 15, 17, 18, 19, 21, 22, 23]),
@@ -16,7 +21,8 @@ export default plugin(() => {}, {
       ringWidth: extendedBorderWidth,
       ringOffsetWidth: extendedBorderWidth,
       outlineOffset: extendedBorderWidth,
-      fontSize: { '2xs': ['0.625rem', { lineHeight: '0.75rem' }] },
     },
   },
 });
+
+export default defaultsPlugin;

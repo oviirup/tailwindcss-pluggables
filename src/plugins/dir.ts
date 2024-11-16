@@ -1,12 +1,15 @@
 import createPlugin from 'tailwindcss/plugin.js';
 
-export default createPlugin(({ addUtilities }) => {
+/**
+ * Specify direction per element
+ *
+ * [Documentation](#)
+ */
+const dirPlugin = createPlugin(({ addUtilities }) => {
   addUtilities({
-    '.dir-rtl': {
-      direction: 'rtl',
-    },
-    '.dir-ltr': {
-      direction: 'ltr',
-    },
+    '.dir-rtl': { direction: 'rtl' },
+    '.dir-ltr': { direction: 'ltr' },
   });
 });
+
+export default dirPlugin;

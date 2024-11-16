@@ -2,7 +2,12 @@ import { StyleObject } from '@/types';
 import { directValues } from '@/utils';
 import createPlugin from 'tailwindcss/plugin.js';
 
-export default createPlugin(({ matchVariant }) => {
+/**
+ * Add not variants
+ *
+ * [Documentation](#)
+ */
+const notPlugin = createPlugin(({ matchVariant }) => {
   const negationMap: StyleObject = {
     'first': '&:not(:first-child)',
     'last': '&:not(:last-child)',
@@ -18,3 +23,5 @@ export default createPlugin(({ matchVariant }) => {
     { values: directValues(Object.keys(negationMap)) },
   );
 });
+
+export default notPlugin;

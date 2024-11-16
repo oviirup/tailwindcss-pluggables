@@ -1,6 +1,11 @@
 import createPlugin from 'tailwindcss/plugin';
 
-export default createPlugin(({ addUtilities }) => {
+/**
+ * Add Show / Hide element
+ *
+ * [Documentation](#)
+ */
+const visibilityPlugin = createPlugin(({ addUtilities }) => {
   addUtilities({
     '.hide': {
       visibility: 'hidden',
@@ -14,3 +19,5 @@ export default createPlugin(({ addUtilities }) => {
     },
   });
 });
+
+export default visibilityPlugin;
