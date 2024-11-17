@@ -16,34 +16,35 @@ export type HocusPluginOptions = Record<string, string[]>;
  *
  * [Documentation](#)
  */
-const hocusPlugin = createPlugin.withOptions((variants?: HocusPluginOptions) => ({ e, addVariant, matchVariant }) => {
-  variants ??= {
+const hocusPlugin = createPlugin.withOptions((opts?: HocusPluginOptions) => (tw) => {
+  // use default options
+  opts ??= {
     DEFAULT: [':hover', ':focus-visible'],
   };
 
-  for (const [suffix, pseudoClasses] of Object.entries(variants)) {
-    const variant = suffix === 'DEFAULT' ? `hocus` : `hocus-${e(suffix)}`;
+  for (const [suffix, pseudoClasses] of Object.entries(opts)) {
+    const variant = suffix === 'DEFAULT' ? `hocus` : `hocus-${tw.e(suffix)}`;
 
-    addVariant(
+    tw.addVariant(
       variant,
       pseudoClasses.map((state) => `&${state}`),
     );
 
     // parent selector
-    matchVariant(
+    tw.matchVariant(
       'group',
       (_, { modifier: modifier }) => {
-        const parent = modifier ? `group\\/${e(modifier)}` : `group`;
+        const parent = modifier ? `group\\/${tw.e(modifier)}` : `group`;
         return pseudoClasses.map((state) => `:merge(.${parent})${state} &`);
       },
       { values: { [variant]: variant } },
     );
 
     // parent selector
-    matchVariant(
+    tw.matchVariant(
       'peer',
       (_, { modifier: modifier }) => {
-        const peer = modifier ? `peer\\/${e(modifier)}` : `peer`;
+        const peer = modifier ? `peer\\/${tw.e(modifier)}` : `peer`;
         return pseudoClasses.map((state) => `:merge(.${peer})${state} ~ &`);
       },
       { values: { [variant]: variant } },

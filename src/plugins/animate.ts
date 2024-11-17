@@ -8,15 +8,15 @@ function filterDefault(values: Record<string, string>) {
 const animateThemeConfig: Partial<Config> = {
   theme: {
     extend: {
-      animationDelay: ({ theme }: PluginUtils) => ({
-        ...theme('transitionDelay'),
+      animationDelay: (tw: PluginUtils) => ({
+        ...tw.theme('transitionDelay'),
       }),
-      animationDuration: ({ theme }: PluginUtils) => ({
+      animationDuration: (tw: PluginUtils) => ({
         0: '0ms',
-        ...theme('transitionDuration'),
+        ...tw.theme('transitionDuration'),
       }),
-      animationTimingFunction: ({ theme }: PluginUtils) => ({
-        ...theme('transitionTimingFunction'),
+      animationTimingFunction: (tw: PluginUtils) => ({
+        ...tw.theme('transitionTimingFunction'),
       }),
       animationFillMode: {
         none: 'none',
@@ -30,30 +30,30 @@ const animateThemeConfig: Partial<Config> = {
         'alternate': 'alternate',
         'alternate-reverse': 'alternate-reverse',
       },
-      animationOpacity: ({ theme }: PluginUtils) => ({
+      animationOpacity: (tw: PluginUtils) => ({
         DEFAULT: 0,
-        ...theme('opacity'),
+        ...tw.theme('opacity'),
       }),
-      animationTranslate: ({ theme }: PluginUtils) => ({
+      animationTranslate: (tw: PluginUtils) => ({
         DEFAULT: '100%',
-        ...theme('translate'),
+        ...tw.theme('translate'),
       }),
-      animationScale: ({ theme }: PluginUtils) => ({
+      animationScale: (tw: PluginUtils) => ({
         DEFAULT: 0,
-        ...theme('scale'),
+        ...tw.theme('scale'),
       }),
-      animationRotate: ({ theme }: PluginUtils) => ({
+      animationRotate: (tw: PluginUtils) => ({
         DEFAULT: '30deg',
-        ...theme('rotate'),
+        ...tw.theme('rotate'),
       }),
       animationRepeat: {
         0: '0',
         1: '1',
         infinite: 'infinite',
       },
-      animation: ({ theme }: PluginUtils) => ({
-        in: `enter ${theme('animationDuration.DEFAULT')}`,
-        out: `exit ${theme('animationDuration.DEFAULT')}`,
+      animation: (tw: PluginUtils) => ({
+        in: `enter ${tw.theme('animationDuration.DEFAULT')}`,
+        out: `exit ${tw.theme('animationDuration.DEFAULT')}`,
       }),
       keyframes: {
         enter: {
@@ -81,8 +81,8 @@ const animateThemeConfig: Partial<Config> = {
  *
  * [Documentation](#)
  */
-const animatePlugin = createPlugin(({ addUtilities, matchUtilities, theme }) => {
-  addUtilities({
+const animatePlugin = createPlugin((tw) => {
+  tw.addUtilities({
     '.animate-in': {
       '--tw-enter-opacity': 'initial',
       '--tw-enter-scale': 'initial',
@@ -99,31 +99,31 @@ const animatePlugin = createPlugin(({ addUtilities, matchUtilities, theme }) => 
     },
   });
 
-  matchUtilities(
+  tw.matchUtilities(
     {
       'fade-in': (value) => ({ '--tw-enter-opacity': value }),
       'fade-out': (value) => ({ '--tw-exit-opacity': value }),
     },
-    { values: theme('animationOpacity') },
+    { values: tw.theme('animationOpacity') },
   );
 
-  matchUtilities(
+  tw.matchUtilities(
     {
       'zoom-in': (value) => ({ '--tw-enter-scale': value }),
       'zoom-out': (value) => ({ '--tw-exit-scale': value }),
     },
-    { values: theme('animationScale') },
+    { values: tw.theme('animationScale') },
   );
 
-  matchUtilities(
+  tw.matchUtilities(
     {
       'spin-in': (value) => ({ '--tw-enter-rotate': value }),
       'spin-out': (value) => ({ '--tw-exit-rotate': value }),
     },
-    { values: theme('animationRotate') },
+    { values: tw.theme('animationRotate') },
   );
 
-  matchUtilities(
+  tw.matchUtilities(
     {
       'slide-in-from-top': (value) => ({
         '--tw-enter-translate-y': `-${value}`,
@@ -150,31 +150,40 @@ const animatePlugin = createPlugin(({ addUtilities, matchUtilities, theme }) => 
         '--tw-exit-translate-x': value,
       }),
     },
-    { values: theme('animationTranslate') },
+    { values: tw.theme('animationTranslate') },
   );
 
-  matchUtilities(
+  tw.matchUtilities(
     { duration: (value) => ({ animationDuration: value }) },
-    { values: filterDefault(theme('animationDuration')) },
+    { values: filterDefault(tw.theme('animationDuration')) },
   );
 
-  matchUtilities({ delay: (value) => ({ animationDelay: value }) }, { values: theme('animationDelay') });
+  tw.matchUtilities({ delay: (value) => ({ animationDelay: value }) }, { values: tw.theme('animationDelay') });
 
-  matchUtilities(
+  tw.matchUtilities(
     { ease: (value) => ({ animationTimingFunction: value }) },
-    { values: filterDefault(theme('animationTimingFunction')) },
+    { values: filterDefault(tw.theme('animationTimingFunction')) },
   );
 
-  addUtilities({
+  tw.addUtilities({
     '.running': { animationPlayState: 'running' },
     '.paused': { animationPlayState: 'paused' },
   });
 
-  matchUtilities({ 'fill-mode': (value) => ({ animationFillMode: value }) }, { values: theme('animationFillMode') });
+  tw.matchUtilities(
+    { 'fill-mode': (value) => ({ animationFillMode: value }) },
+    { values: tw.theme('animationFillMode') },
+  );
 
-  matchUtilities({ direction: (value) => ({ animationDirection: value }) }, { values: theme('animationDirection') });
+  tw.matchUtilities(
+    { direction: (value) => ({ animationDirection: value }) },
+    { values: tw.theme('animationDirection') },
+  );
 
-  matchUtilities({ repeat: (value) => ({ animationIterationCount: value }) }, { values: theme('animationRepeat') });
+  tw.matchUtilities(
+    { repeat: (value) => ({ animationIterationCount: value }) },
+    { values: tw.theme('animationRepeat') },
+  );
 }, animateThemeConfig);
 
 export default animatePlugin;

@@ -1,12 +1,12 @@
-import createPlugin from 'tailwindcss/plugin.js';
+import createPlugin from 'tailwindcss/plugin';
 
 /**
  * Specify element to be draggable or non-draggable
  *
  * [Documentation](#)
  */
-const dragPlugin = createPlugin(({ addUtilities }) => {
-  addUtilities({
+const dragPlugin = createPlugin((tw) => {
+  tw.addUtilities({
     '.drag-none': {
       'user-drag': 'none',
       '-webkit-user-drag': 'none',

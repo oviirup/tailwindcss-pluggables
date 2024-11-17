@@ -27,6 +27,7 @@
   ],
   "scripts": {
     "build": "tsup --minify",
+    "format": "prettier . -w -u --cache",
     "generate": "turbo gen",
     "watch": "tsup --watch"
   },

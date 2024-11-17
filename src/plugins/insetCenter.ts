@@ -1,12 +1,12 @@
-import createPlugin from 'tailwindcss/plugin.js';
+import createPlugin from 'tailwindcss/plugin';
 
 /**
  * Position element at absolute center
  *
  * [Documentation](#)
  */
-const insetCenterPlugin = createPlugin(({ addUtilities }) => {
-  addUtilities({
+const insetCenterPlugin = createPlugin((tw) => {
+  tw.addUtilities({
     '.inset-center': {
       '@apply top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2': {},
     },

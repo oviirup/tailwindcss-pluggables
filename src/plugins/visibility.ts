@@ -5,8 +5,8 @@ import createPlugin from 'tailwindcss/plugin';
  *
  * [Documentation](#)
  */
-const visibilityPlugin = createPlugin(({ addUtilities }) => {
-  addUtilities({
+const visibilityPlugin = createPlugin((tw) => {
+  tw.addUtilities({
     '.hide': {
       visibility: 'hidden',
       opacity: '0',
