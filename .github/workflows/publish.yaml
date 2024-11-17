@@ -1,4 +1,4 @@
-name: Publish CLI Tool
+name: Release
 
 on:
   push:
@@ -13,7 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/setup
+
+      - name: 🟢 Setup CI environment
+        uses: ./.github/actions/setup
 
       - name: ⚙️ Build Package
         run: bun run build

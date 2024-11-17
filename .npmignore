@@ -3,6 +3,7 @@
 .vscode
 .github
 .changeset
+.turbo
 src
 tsup.config.ts
 !dist
