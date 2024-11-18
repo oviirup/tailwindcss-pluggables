@@ -6,6 +6,7 @@ import dragPlugin from './plugins/drag';
 import hocusPlugin, { HocusPluginOptions } from './plugins/hocus';
 import insetCenterPlugin from './plugins/insetCenter';
 import notPlugin from './plugins/not';
+import scrollbarPlugin, { ScrollbarPluginOptions } from './plugins/scrollbar';
 import visibilityPlugin from './plugins/visibility';
 
 /**
@@ -30,6 +31,7 @@ export default function pluggables({
   hocus = true,
   insetCenter = true,
   not = true,
+  scrollbar = true,
   visibility = true,
 }: PluggableOptions = {}): PluginsConfig {
   const pluginArray: PluginsConfig = [];
@@ -51,6 +53,7 @@ export default function pluggables({
   use(hocusPlugin, hocus);
   use(insetCenterPlugin, insetCenter);
   use(notPlugin, not);
+  use(scrollbarPlugin, scrollbar);
   use(visibilityPlugin, visibility);
 
   return pluginArray;
@@ -129,11 +132,13 @@ export type PluggableOptions = {
   not?: boolean;
 
   /**
-   * Utility classes to stylize the scrollbar
+   * Stylize scrollbar ui
+   *
+   * Adds utility classes for `scrollbar-gutter`, `scrollbar-color`, `scrollbar-width`
    *
    * [Documentation](#)
    */
-  scrollbar?: boolean;
+  scrollbar?: boolean | ScrollbarPluginOptions;
 
   /**
    * Add Show / Hide element
