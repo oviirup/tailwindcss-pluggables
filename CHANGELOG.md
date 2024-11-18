@@ -1,5 +1,11 @@
 # tailwindcss-pluggables
 
+## 1.0.4
+
+### Patch Changes
+
+- [`5e38c5b`](https://github.com/oviirup/tailwindcss-pluggables/commit/5e38c5bc6b5b93aafc16fcd4e7c6f333676f91d5) Thanks [@oviirup](https://github.com/oviirup)! - added scrollbar plugin
+
 ## 1.0.3
 
 ### Patch Changes
