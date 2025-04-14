@@ -1,13 +1,10 @@
 import { PluginsConfig } from 'tailwindcss/types/config';
 import animatePlugin from './plugins/animate';
 import defaultsPlugin from './plugins/defaults';
-import dirPlugin from './plugins/dir';
 import dragPlugin from './plugins/drag';
 import hocusPlugin, { HocusPluginOptions } from './plugins/hocus';
 import insetCenterPlugin from './plugins/insetCenter';
-import notPlugin from './plugins/not';
 import scrollbarPlugin, { ScrollbarPluginOptions } from './plugins/scrollbar';
-import visibilityPlugin from './plugins/visibility';
 
 /**
  * Use all available plugins at once
@@ -26,13 +23,10 @@ import visibilityPlugin from './plugins/visibility';
 export default function pluggables({
   animate = true,
   defaults = true,
-  dir = true,
   drag = true,
   hocus = true,
   insetCenter = true,
-  not = true,
   scrollbar = true,
-  visibility = true,
 }: PluggableOptions = {}): PluginsConfig {
   const pluginArray: PluginsConfig = [];
 
@@ -48,13 +42,10 @@ export default function pluggables({
 
   use(animatePlugin, animate);
   use(defaultsPlugin, defaults);
-  use(dirPlugin, dir);
   use(dragPlugin, drag);
   use(hocusPlugin, hocus);
   use(insetCenterPlugin, insetCenter);
-  use(notPlugin, not);
   use(scrollbarPlugin, scrollbar);
-  use(visibilityPlugin, visibility);
 
   return pluginArray;
 }
