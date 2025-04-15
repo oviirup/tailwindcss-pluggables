@@ -3,7 +3,7 @@ import animatePlugin from './plugins/animate';
 import defaultsPlugin from './plugins/defaults';
 import dragPlugin from './plugins/drag';
 import hocusPlugin, { HocusPluginOptions } from './plugins/hocus';
-import insetCenterPlugin from './plugins/insetCenter';
+import insetCenterPlugin from './plugins/inset-center';
 import scrollbarPlugin, { ScrollbarPluginOptions } from './plugins/scrollbar';
 
 /**

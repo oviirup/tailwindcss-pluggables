@@ -1,7 +1,6 @@
 {
   "name": "tailwindcss-pluggables",
   "version": "1.0.4",
-  "type": "module",
   "description": "A collection of useful tailwind plugins in one package",
   "repository": {
     "type": "git",
@@ -14,10 +13,15 @@
   "license": "MIT",
   "exports": {
     ".": "./dist/index.js",
-    "./utils": "./dist/utils.js",
+    "./animate": "./dist/animate.css",
+    "./inset-center": "./dist/inset-center.css",
+    "./drag": "./dist/drag.css",
     "./plugins": "./dist/plugins/index.js",
     "./plugins/*": "./dist/plugins/*.js"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "tailwind",
     "tailwindcss",
@@ -26,28 +30,26 @@
     "collection"
   ],
   "scripts": {
-    "build": "tsup --minify",
-    "format": "prettier . -w -u --cache",
+    "build": "tsup-node",
+    "format": "prettier . -wu --cache",
     "generate": "turbo gen",
-    "watch": "tsup --watch"
+    "watch": "tsup-node -w"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.0.0 || insiders"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "~0.5.0",
-    "@changesets/cli": "~2.27.9",
-    "@turbo/gen": "~2.3.0",
-    "@types/micromatch": "~4.0.9",
-    "@types/node": "~20.17.6",
-    "micromatch": "~4.0.8",
-    "prettier": "~3.3.3",
-    "prettier-plugin-jsdoc": "~1.3.0",
-    "prettier-plugin-pkg": "~0.18.1",
-    "tailwindcss": "~3.4.14",
-    "tsup": "~8.3.5",
-    "turbo": "~2.3.0",
-    "typescript": "~5.6.3"
+    "@changesets/changelog-github": "~0.5.1",
+    "@changesets/cli": "~2.29.0",
+    "@turbo/gen": "~2.5.0",
+    "@types/node": "~22.14.1",
+    "prettier": "~3.5.3",
+    "prettier-plugin-jsdoc": "~1.3.2",
+    "prettier-plugin-pkg": "~0.19.0",
+    "tailwindcss": "~3.4.17",
+    "tsup": "~8.4.0",
+    "turbo": "~2.5.0",
+    "typescript": "~5.8.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
