@@ -30,10 +30,10 @@
     "collection"
   ],
   "scripts": {
-    "build": "tsup-node",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "format": "prettier . -wu --cache",
-    "generate": "turbo gen",
-    "watch": "tsup-node -w"
+    "generate": "turbo gen"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.0.0 || insiders"
@@ -42,7 +42,9 @@
     "@changesets/changelog-github": "~0.5.1",
     "@changesets/cli": "~2.29.0",
     "@turbo/gen": "~2.5.0",
+    "@types/micromatch": "~4.0.9",
     "@types/node": "~22.14.1",
+    "micromatch": "~4.0.8",
     "prettier": "~3.5.3",
     "prettier-plugin-jsdoc": "~1.3.2",
     "prettier-plugin-pkg": "~0.19.0",
