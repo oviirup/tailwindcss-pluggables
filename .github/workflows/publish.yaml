@@ -3,23 +3,15 @@ name: Release
 on:
   push:
     branches: [main]
-  pull_request_target:
-    branches: [main]
-    types: [closed]
 
 jobs:
   publish:
-    if: github.event_name == 'push' || github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: 🟢 Setup CI environment
-        uses: ./.github/actions/setup
-
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
       - name: ⚙️ Build Package
         run: bun run build
-
       - name: 🚀 Create Pull Request & Publish
         id: changesets
         uses: changesets/action@v1

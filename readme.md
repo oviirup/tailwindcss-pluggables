@@ -1,7 +1,4 @@
-# Tailwindcss Pluggables
-
-![Tests](https://github.com/oviirup/tailwindcss-pluggables/workflows/Release/badge.svg)
-[![NPM Version](https://img.shields.io/npm/v/tailwindcss-pluggables)](https://www.npmjs.com/package/tailwindcss-pluggables)
+# Tailwindcss Pluggables [![](https://img.shields.io/npm/v/tailwindcss-pluggables)](https://www.npmjs.com/package/tailwindcss-pluggables)
 
 A collection of Tailwind CSS plugins that extend functionality with additional theme defaults, utilities, variants, and more.
 
