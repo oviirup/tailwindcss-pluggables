@@ -1,5 +1,11 @@
 # tailwindcss-pluggables
 
+## 1.1.0
+
+### Minor Changes
+
+- [#4](https://github.com/oviirup/tailwindcss-pluggables/pull/4) [`490848c`](https://github.com/oviirup/tailwindcss-pluggables/commit/490848c596c0edfc8a947a4aef67dcd522ae8f39) Thanks [@oviirup](https://github.com/oviirup)! - ✨ added tailwind v4 utilities
+
 ## 1.0.4
 
 ### Patch Changes
