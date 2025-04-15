@@ -1,6 +1,6 @@
-import { flattenColorPalette, toColorValue } from '@/utils';
 import createPlugin from 'tailwindcss/plugin';
 import { KeyValuePair } from 'tailwindcss/types/config';
+import { flattenColorPalette, toColorValue } from '../utils';
 
 /** Options for scrollbar utility classes */
 export type ScrollbarPluginOptions = {

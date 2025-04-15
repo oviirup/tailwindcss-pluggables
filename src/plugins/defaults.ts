@@ -1,5 +1,5 @@
-import { directValues, remSizes } from '@/utils';
 import createPlugin from 'tailwindcss/plugin';
+import { directValues, remSizes } from '../utils';
 
 const extendedBorderWidth = {
   3: '3px',

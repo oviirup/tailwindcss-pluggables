@@ -1,0 +1,17 @@
+@utility inset-center {
+  top: 50%;
+  right: 50%;
+  --tw-translate-y: -50%;
+  --tw-translate-y: -50%;
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}
+@utility inset-x-center {
+  left: 50%;
+  --tw-translate-x: 50%;
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}
+@utility inset-y-center {
+  top: 50%;
+  --tw-translate-y: -50%;
+  translate: var(--tw-translate-x) var(--tw-translate-y);
+}

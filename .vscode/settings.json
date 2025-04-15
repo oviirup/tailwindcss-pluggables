@@ -4,13 +4,6 @@
     "source.organizeImports": "explicit",
     "source.fixAll.eslint": "explicit"
   },
-  // file nesting
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.expand": false,
-  "explorer.fileNesting.patterns": {
-    "package.json": ".nvmrc, .npm*, bun.lockb, pnpm*, yarn.lock",
-    "*.js": "$(capture).cjs, $(capture).d.cts, $(capture).js.map, $(capture).*.js, $(capture).d.ts"
-  },
   // prettier-ignore
   "cSpell.words": [
     "pluggable","pluggables",

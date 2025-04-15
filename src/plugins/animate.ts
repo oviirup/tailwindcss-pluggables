@@ -59,13 +59,15 @@ const animateThemeConfig: Partial<Config> = {
         enter: {
           from: {
             opacity: 'var(--tw-enter-opacity, 1)',
-            transform: `translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y,0),0) scale3d(var(--tw-enter-scale,1),var(--tw-enter-scale,1), var(--tw-enter-scale,1)) rotate(var(--tw-enter-rotate, 0))`,
+            transform:
+              'translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y,0),0) scale3d(var(--tw-enter-scale,1),var(--tw-enter-scale,1), var(--tw-enter-scale,1)) rotate(var(--tw-enter-rotate, 0))',
           },
         },
         exit: {
           to: {
             opacity: 'var(--tw-exit-opacity, 1)',
-            transform: `translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y,0),0) scale3d(var(--tw-exit-scale,1),var(--tw-exit-scale,1), var(--tw-exit-scale,1)) rotate(var(--tw-exit-rotate, 0))`,
+            transform:
+              'translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y,0),0) scale3d(var(--tw-exit-scale,1),var(--tw-exit-scale,1), var(--tw-exit-scale,1)) rotate(var(--tw-exit-rotate, 0))',
           },
         },
       },
@@ -84,6 +86,8 @@ const animateThemeConfig: Partial<Config> = {
 const animatePlugin = createPlugin((tw) => {
   tw.addUtilities({
     '.animate-in': {
+      'animationName': 'enter',
+      'animationDuration': tw.theme('animationDuration.DEFAULT'),
       '--tw-enter-opacity': 'initial',
       '--tw-enter-scale': 'initial',
       '--tw-enter-rotate': 'initial',
@@ -91,6 +95,8 @@ const animatePlugin = createPlugin((tw) => {
       '--tw-enter-translate-y': 'initial',
     },
     '.animate-out': {
+      'animationName': 'exit',
+      'animationDuration': tw.theme('animationDuration.DEFAULT'),
       '--tw-exit-opacity': 'initial',
       '--tw-exit-scale': 'initial',
       '--tw-exit-rotate': 'initial',
