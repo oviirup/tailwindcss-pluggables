@@ -16,6 +16,7 @@
     "./animate": "./dist/animate.css",
     "./inset-center": "./dist/inset-center.css",
     "./drag": "./dist/drag.css",
+    "./hocus": "./dist/hocus.css",
     "./plugins": "./dist/plugins/index.js",
     "./plugins/*": "./dist/plugins/*.js"
   },
