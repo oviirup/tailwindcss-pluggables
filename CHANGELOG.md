@@ -1,5 +1,11 @@
 # tailwindcss-pluggables
 
+## 1.1.2
+
+### Patch Changes
+
+- [`1096bff`](https://github.com/oviirup/tailwindcss-pluggables/commit/1096bffe75806c2f64a0acd824a22c8a580b3bef) Thanks [@oviirup](https://github.com/oviirup)! - 🐛 fix missing export
+
 ## 1.1.1
 
 ### Patch Changes
