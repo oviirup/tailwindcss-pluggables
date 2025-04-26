@@ -2,6 +2,9 @@
 node_modules
 dist
 
+# generated css files at the root
+/*.css
+
 # turbo cache
 .turbo
 
