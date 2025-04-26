@@ -2,6 +2,8 @@
 
 A collection of Tailwind CSS plugins that extend functionality with additional theme defaults, utilities, variants, and more.
 
+> Supports Tailwind v4
+
 ## Installation
 
 Install the package using your preferred package manager:
@@ -16,6 +18,7 @@ Import the plugins in your `global.css`:
 @import 'tailwindcss-pluggables/animate';
 @import 'tailwindcss-pluggables/drag';
 @import 'tailwindcss-pluggables/inset-center';
+@import 'tailwindcss-pluggables/hocus';
 ```
 
 Alternatively, add the plugins to your `tailwind.config.js`:
