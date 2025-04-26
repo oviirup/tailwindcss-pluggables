@@ -1,5 +1,11 @@
 # tailwindcss-pluggables
 
+## 1.1.1
+
+### Patch Changes
+
+- [`98e3854`](https://github.com/oviirup/tailwindcss-pluggables/commit/98e3854767d75b4a6f7a5a6c09ac33c4be6d243e) Thanks [@oviirup](https://github.com/oviirup)! - ✨ added hocus
+
 ## 1.1.0
 
 ### Minor Changes
