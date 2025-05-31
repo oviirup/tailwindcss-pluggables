@@ -1,10 +1,8 @@
 import { PluginsConfig } from 'tailwindcss/types/config';
-import animatePlugin from './plugins/animate';
-import defaultsPlugin from './plugins/defaults';
-import dragPlugin from './plugins/drag';
-import hocusPlugin, { HocusPluginOptions } from './plugins/hocus';
-import insetCenterPlugin from './plugins/inset-center';
-import scrollbarPlugin, { ScrollbarPluginOptions } from './plugins/scrollbar';
+import animatePlugin from './animate';
+import dragPlugin from './drag';
+import hocusPlugin, { HocusPluginOptions } from './hocus';
+import insetCenterPlugin from './inset-center';
 
 /**
  * Use all available plugins at once
@@ -22,11 +20,9 @@ import scrollbarPlugin, { ScrollbarPluginOptions } from './plugins/scrollbar';
  */
 export default function pluggables({
   animate = true,
-  defaults = true,
   drag = true,
   hocus = true,
   insetCenter = true,
-  scrollbar = true,
 }: PluggableOptions = {}): PluginsConfig {
   const pluginArray: PluginsConfig = [];
 
@@ -41,11 +37,9 @@ export default function pluggables({
   };
 
   use(animatePlugin, animate);
-  use(defaultsPlugin, defaults);
   use(dragPlugin, drag);
   use(hocusPlugin, hocus);
   use(insetCenterPlugin, insetCenter);
-  use(scrollbarPlugin, scrollbar);
 
   return pluginArray;
 }
@@ -62,24 +56,6 @@ export type PluggableOptions = {
    * @default true
    */
   animate?: boolean;
-
-  /**
-   * Extended theme defaults
-   *
-   * [Documentation](#)
-   *
-   * @default true
-   */
-  defaults?: boolean;
-
-  /**
-   * Specify direction per element
-   *
-   * [Documentation](#)
-   *
-   * @default true
-   */
-  dir?: boolean;
 
   /**
    * Specify element to be draggable or non-draggable
@@ -112,31 +88,4 @@ export type PluggableOptions = {
    * @default true
    */
   insetCenter?: boolean;
-
-  /**
-   * Add not variants
-   *
-   * [Documentation](#)
-   *
-   * @default true
-   */
-  not?: boolean;
-
-  /**
-   * Stylize scrollbar ui
-   *
-   * Adds utility classes for `scrollbar-gutter`, `scrollbar-color`, `scrollbar-width`
-   *
-   * [Documentation](#)
-   */
-  scrollbar?: boolean | ScrollbarPluginOptions;
-
-  /**
-   * Add Show / Hide element
-   *
-   * [Documentation](#)
-   *
-   * @default true
-   */
-  visibility?: boolean;
 };
