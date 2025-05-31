@@ -1,5 +1,15 @@
 # tailwindcss-pluggables
 
+## 1.2.0
+
+### Minor Changes
+
+- [#8](https://github.com/oviirup/tailwindcss-pluggables/pull/8) [`59f1eda`](https://github.com/oviirup/tailwindcss-pluggables/commit/59f1eda5f964f9ddd47559c895a0cc22c06ff118) Thanks [@oviirup](https://github.com/oviirup)! - ♻️ Enhanced compatibility with Tailwind CSS v4.
+
+  - 🚚 Restructured and relocated core files for improved maintainability.
+  - 🗑️ Removed deprecated modules: `_defaults_` and `_scrollbar_`.
+  - 🔧 Updated `package.json` with definitive export definitions.
+
 ## 1.1.2
 
 ### Patch Changes
