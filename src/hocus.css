@@ -1,17 +1,5 @@
-@custom-variant hocus {
-  &:is(:hover, :focus) {
-    @slot;
-  }
-}
+@custom-variant hocus (&:is(:hover, :focus));
 
-@custom-variant hocus-visible {
-  &:is(:hover, :focus-visible) {
-    @slot;
-  }
-}
+@custom-variant hocus-visible (&:is(:hover, :focus-visible));
 
-@custom-variant hocus-active {
-  &:is(:hover, :active) {
-    @slot;
-  }
-}
+@custom-variant hocus-active (&:is(:hover, :active));

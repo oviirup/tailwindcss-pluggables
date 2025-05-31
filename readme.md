@@ -9,10 +9,19 @@ A collection of Tailwind CSS plugins that extend functionality with additional t
 Install the package using your preferred package manager:
 
 ```bash
-pnpm i tailwindcss-pluggables
+pnpm add tailwindcss-pluggables
+# or
+bun add tailwindcss-pluggables
 ```
 
-Import the plugins in your `global.css`:
+To include all plugins globally, add the following to your `global.css`:
+
+```css
+@import 'tailwindcss';
+@import 'tailwindcss-pluggables';
+```
+
+Alternatively, you may import plugins individually as needed:
 
 ```css
 @import 'tailwindcss-pluggables/animate';
@@ -21,7 +30,7 @@ Import the plugins in your `global.css`:
 @import 'tailwindcss-pluggables/hocus';
 ```
 
-Alternatively, add the plugins to your `tailwind.config.js`:
+You can also configure the plugins in your `tailwind.config.js` (ESM syntax shown):
 
 ```js
 import pluggables from 'tailwindcss-pluggables';
@@ -43,13 +52,15 @@ export default tailwindConfig;
 For more granular control, you can import and use plugins individually:
 
 ```js
-import { animatePlugin, scrollbarPlugin } from 'tailwindcss-pluggables/plugins';
+import animatePlugin from 'tailwindcss-pluggables/animate';
+import hocusPlugin from 'tailwindcss-pluggables/hocus';
+// import other plugins as needed
 
 const tailwindConfig = {
   plugins: [
     animatePlugin,
-    scrollbarPlugin,
-    // Additional plugins as needed
+    hocusPlugin,
+    // use additional plugins as needed
   ],
 };
 
@@ -65,12 +76,7 @@ Most plugins are enabled by default, while others offer configurable options:
 ```js
 pluggables({
   drag: false, // Disable specific plugin
-  scroll: true, // Enable plugin with default configuration
-  hocus: {
-    DEFAULT: [':hover', ':focus'],
-    visible: [':hover', ':focus-visible'],
-    within: [':hover', ':focus-within'],
-  },
+  hocus: true,
 });
 ```
 

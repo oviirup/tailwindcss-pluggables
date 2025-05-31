@@ -16,20 +16,21 @@ export type HocusPluginOptions = Record<string, string[]>;
  *
  * [Documentation](#)
  */
-const hocusPlugin = createPlugin.withOptions((opts?: HocusPluginOptions) => (tw) => {
+const hocusPlugin = createPlugin((tw) => {
   // use default options
-  opts ??= {
-    DEFAULT: [':hover', ':focus-visible'],
+  const variants = {
+    'DEFAULT': [':hover', ':focus'],
+    'hocus-visible': [':hover', ':focus-visible'],
+    'hocus-active': [':hover', ':active'],
   };
 
-  for (const [suffix, pseudoClasses] of Object.entries(opts)) {
+  for (const [suffix, pseudoClasses] of Object.entries(variants)) {
     const variant = suffix === 'DEFAULT' ? `hocus` : `hocus-${tw.e(suffix)}`;
-
+    // add base variants
     tw.addVariant(
       variant,
       pseudoClasses.map((state) => `&${state}`),
     );
-
     // parent selector
     tw.matchVariant(
       'group',
