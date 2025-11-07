@@ -1,0 +1,6 @@
+.editorconfig
+.prettier*
+.vscode
+.github
+.changeset
+.husky

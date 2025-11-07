@@ -1,4 +1,4 @@
-name: Release
+name: publish
 
 on:
   push:
@@ -9,9 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup
-      - name: ⚙️ Build Package
-        run: bun run build
+      - name: 🟢 Setup Bun
+        uses: oven-sh/setup-bun@v2
+      - name: ⚙️ Install dependencies
+        shell: bash
+        run: bun install
       - name: 🚀 Create Pull Request & Publish
         id: changesets
         uses: changesets/action@v1
