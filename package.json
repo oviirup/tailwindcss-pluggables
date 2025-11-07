@@ -12,51 +12,29 @@
   },
   "license": "MIT",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "style": "./index.css",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
-    },
-    "./animate": {
-      "types": "./dist/animate.d.ts",
-      "style": "./animate.css",
-      "require": "./dist/animate.js",
-      "import": "./dist/animate.mjs"
-    },
-    "./drag": {
-      "types": "./dist/drag.d.ts",
-      "style": "./drag.css",
-      "require": "./dist/drag.js",
-      "import": "./dist/drag.mjs"
-    },
-    "./hocus": {
-      "types": "./dist/hocus.d.ts",
-      "style": "./hocus.css",
-      "require": "./dist/hocus.js",
-      "import": "./dist/hocus.mjs"
-    },
-    "./inset-center": {
-      "types": "./dist/inset-center.d.ts",
-      "style": "./inset-center.css",
-      "require": "./dist/inset-center.js",
-      "import": "./dist/inset-center.mjs"
-    }
+    ".": "./styles/index.css",
+    "./animate": "./styles/animate.css",
+    "./drag": "./styles/drag.css",
+    "./hocus": "./styles/hocus.css"
   },
-  "files": [
-    "animate.css",
-    "dist",
-    "drag.css",
-    "hocus.css",
-    "index.css",
-    "inset-center.css"
-  ],
   "keywords": [
+    "shadcn",
+    "hocus",
+    "drag",
+    "accordion",
+    "animate",
+    "animation",
+    "fades",
+    "opacity",
+    "scale",
+    "slide",
+    "spin",
     "tailwind",
+    "tailwind-animate",
+    "tailwind-plugins",
     "tailwindcss",
-    "css",
-    "plugin",
-    "collection"
+    "tailwindcss-animate",
+    "tailwindcss-plugins"
   ],
   "scripts": {
     "format": "prettier -wu --cache .",
