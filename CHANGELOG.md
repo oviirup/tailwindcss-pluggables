@@ -1,11 +1,19 @@
 # tailwindcss-pluggables
 
+## 2.0.0
+
+### Major Changes
+
+- [#10](https://github.com/oviirup/tailwindcss-pluggables/pull/10) [`ed27f56`](https://github.com/oviirup/tailwindcss-pluggables/commit/ed27f56b122c8b43871cdad06ec28a19c69f0bfc) Thanks [@oviirup](https://github.com/oviirup)! - 🎉 migrated to css-first tailwind v4
+  - 🗑️ removed javascript based plugins
+  - 📁 update file structure
+  - 🐶 added husky
+
 ## 1.2.0
 
 ### Minor Changes
 
 - [#8](https://github.com/oviirup/tailwindcss-pluggables/pull/8) [`59f1eda`](https://github.com/oviirup/tailwindcss-pluggables/commit/59f1eda5f964f9ddd47559c895a0cc22c06ff118) Thanks [@oviirup](https://github.com/oviirup)! - ♻️ Enhanced compatibility with Tailwind CSS v4.
-
   - 🚚 Restructured and relocated core files for improved maintainability.
   - 🗑️ Removed deprecated modules: `_defaults_` and `_scrollbar_`.
   - 🔧 Updated `package.json` with definitive export definitions.
@@ -39,7 +47,6 @@
 ### Patch Changes
 
 - [`f66a94b`](https://github.com/oviirup/tailwindcss-pluggables/commit/f66a94b44fc612fe33e55623fa241edb8b93aa15) Thanks [@oviirup](https://github.com/oviirup)! - improve dx
-
   - ✨ added use plugin function to add plugins to list
   - ✨ plugin code generator for with `turbo gen`
   - using `tw` instead of destructuring in `createPlugin`
