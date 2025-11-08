@@ -7,78 +7,56 @@
     "url": "https://github.com/oviirup/tailwindcss-pluggable"
   },
   "author": {
-    "name": "Avirup Ghosh",
+    "name": "Avirup Ghosh (oviirup)",
     "url": "https://github.com/oviirup"
   },
   "license": "MIT",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "style": "./index.css",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
-    },
-    "./animate": {
-      "types": "./dist/animate.d.ts",
-      "style": "./animate.css",
-      "require": "./dist/animate.js",
-      "import": "./dist/animate.mjs"
-    },
-    "./drag": {
-      "types": "./dist/drag.d.ts",
-      "style": "./drag.css",
-      "require": "./dist/drag.js",
-      "import": "./dist/drag.mjs"
-    },
-    "./hocus": {
-      "types": "./dist/hocus.d.ts",
-      "style": "./hocus.css",
-      "require": "./dist/hocus.js",
-      "import": "./dist/hocus.mjs"
-    },
-    "./inset-center": {
-      "types": "./dist/inset-center.d.ts",
-      "style": "./inset-center.css",
-      "require": "./dist/inset-center.js",
-      "import": "./dist/inset-center.mjs"
-    }
+    ".": "./styles/index.css",
+    "./animate": "./styles/animate.css",
+    "./drag": "./styles/drag.css",
+    "./hocus": "./styles/hocus.css"
   },
-  "files": [
-    "animate.css",
-    "dist",
-    "drag.css",
-    "hocus.css",
-    "index.css",
-    "inset-center.css"
-  ],
   "keywords": [
+    "shadcn",
+    "hocus",
+    "drag",
+    "accordion",
+    "animate",
+    "animation",
+    "fades",
+    "opacity",
+    "scale",
+    "slide",
+    "spin",
     "tailwind",
+    "tailwind-animate",
+    "tailwind-plugins",
     "tailwindcss",
-    "css",
-    "plugin",
-    "collection"
+    "tailwindcss-animate",
+    "tailwindcss-plugins"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "format": "prettier . -wu --cache"
+    "format": "prettier -wu --cache .",
+    "prepare": "husky"
   },
   "peerDependencies": {
-    "tailwindcss": ">=3.0.0 || insiders"
+    "tailwindcss": ">=4"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "~0.5.1",
-    "@changesets/cli": "~2.29.0",
-    "@types/node": "~22.14.1",
-    "prettier": "~3.5.3",
-    "prettier-plugin-jsdoc": "~1.3.2",
-    "prettier-plugin-pkg": "~0.19.0",
-    "tailwindcss": "~3.4.17",
-    "tsup": "~8.5.0",
-    "typescript": "~5.8.3"
+    "@changesets/changelog-github": "^0",
+    "@changesets/cli": "^2",
+    "husky": "^9",
+    "lint-staged": "^16",
+    "prettier": "^3",
+    "prettier-plugin-pkg": "^0",
+    "prettier-plugin-tailwindcss": "^0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
+  },
+  "lint-staged": {
+    "*": "prettier -wu"
   }
 }

@@ -1,11 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit",
-    "source.fixAll.eslint": "explicit"
-  },
-  // prettier-ignore
-  "cSpell.words": [
-    "pluggable","pluggables",
-  ]
+  "css.validate": false,
+  "cSpell.words": ["pluggable", "pluggables"]
 }

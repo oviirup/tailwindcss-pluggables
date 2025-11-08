@@ -3,13 +3,4 @@
 .vscode
 .github
 .changeset
-.turbo
-src
-tsup.config.ts
-!dist
-
-# package lock
-package-lock.json
-pnpm-lock.yaml
-bun.lockb
-yarn.lock
+.husky
