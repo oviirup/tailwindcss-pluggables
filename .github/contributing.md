@@ -8,20 +8,20 @@ Before submitting your first pull-request please go through this document. We re
 
 ## About this project
 
-This project uses **bun.js** as a package manager. The project structure is as follows...
+This project uses **bun.js** as a package manager. The project follows Tailwind CSS v4's [css-first architecture](https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities), where utilities are defined using native CSS directives instead of JavaScript plugins.
+
+The project structure is as follows...
 
 ```
-src
-├── plugins
-│   ├── index.ts
-│   ├── animate.ts
-│   ├── defaults.ts
-│   └── ...
-├── index.ts
-└── utils.ts
+styles
+├── index.css
+├── animate.css
+├── drag.css
+├── hocus.css
+└── ...
 ```
 
-All plugins are kept in `src/plugins` directory, and exported individually as barrel exports from `src/plugins/index.ts` file.
+All plugins are kept in the `styles/` directory as CSS files. Each plugin file uses Tailwind CSS v4 directives like `@utility`, `@theme`, and `@custom-variant` to define utilities and variants. The `styles/index.css` file imports all individual plugin files for easy consumption.
 
 ## How Do I Contribute?
 
@@ -69,37 +69,63 @@ Now you can make changes to the repo or [create a new plugin](#create-a-new-plug
 
 ## Create a new Plugin
 
-The project comes with auto code generation. you can do it automatically or manually.
+Plugins in this project are CSS files that use Tailwind CSS v4's native directives. Here's how to create a new plugin:
 
-### Automatic code generation
+1. **Create a new CSS file** in the `styles/` directory. The name should be in _camelCase_ (e.g., `my-plugin.css`).
 
-Just run the generate command in terminal.
+2. **Define your utilities** using Tailwind CSS v4 directives:
+   - Use `@utility` to create utility classes
+   - Use `@theme` to extend the theme configuration
+   - Use `@custom-variant` to create custom variants
+
+   Example:
+
+   ```css
+   /* styles/my-plugin.css */
+   @utility my-utility {
+     property: value;
+   }
+
+   @utility my-utility-* {
+     property: --value([type]);
+   }
+   ```
+
+3. **Add the import** to `styles/index.css` in alphabetical order:
+
+   ```css
+   @import './animate.css';
+   @import './drag.css';
+   @import './hocus.css';
+   @import './my-plugin.css'; /* Add your new plugin here */
+   ```
+
+4. **Update `package.json` exports** to include your new plugin:
+
+   ```json
+   "exports": {
+     ".": "./styles/index.css",
+     "./animate": "./styles/animate.css",
+     "./drag": "./styles/drag.css",
+     "./hocus": "./styles/hocus.css",
+     "./my-plugin": "./styles/my-plugin.css"  /* Add your new export */
+   }
+   ```
+
+### Plugin Examples
+
+- **Simple utilities**: See `styles/drag.css` for basic `@utility` examples
+- **Theme configuration**: See `styles/animate.css` for `@theme` and complex utilities
+- **Custom variants**: See `styles/hocus.css` for `@custom-variant` examples
+
+For more information about Tailwind CSS v4 directives, refer to the [official documentation](https://tailwindcss.com/docs/adding-custom-styles).
+
+## Code Style
+
+This project uses Prettier for code formatting. Before committing, make sure your code is formatted:
 
 ```bash
-bun run generate plugin
+bun run format
 ```
 
-Give it a proper name (in camelCase) and a description
-
-```bash
->>> Modify "tailwindcss-pluggables" using custom generators
-
-? Name of the plugin to create ... animate
-? Describe the plugin in one line ... Plugin to create beautiful animations
-```
-
-It will automatically create `src/plugin/animate.ts` file and add an export from the `src/plugins/index.ts`
-
-You can then modify it as you like.
-
-### Manual process
-
-1. Create a new new file in `src/plugins`. The name of the file should be _camelCase_.
-2. Export the plugin as barrel export from `src/plugins/index.ts` file.\
-   Make sure the exports are in alphabetical order. ESlint order-imports handles that automatically.
-
-After making the plugin file make the necessary changes int `src/index.ts` file `pluggables()` function and `PluggableOptions` type.
-
-## Testing
-
-As of November 2024 this project does not contains any tests, But we encourage contributors to add breaking tests.
+The project uses `husky` and `lint-staged` to automatically format files on commit. All CSS files should follow the existing style patterns.
